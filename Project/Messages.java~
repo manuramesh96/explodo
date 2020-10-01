@@ -1,0 +1,208 @@
+import java.io.*;
+class Messages
+{  String[] inbox=new String[10];
+   String[] draft=new String[10];
+   String[][] sentm=new String[10][2];
+   
+   
+   void inbox()throws IOException
+   {
+       System.out.println("----Inbox----");
+        for(int i=0,k=1;i<10;i++)
+       {
+           
+           if(!(inbox[i].equals("0")))
+           {
+               System.out.println("("+k+") "+inbox[i]);
+               k++;
+           }
+       } 
+    }
+    
+     void sent_messages()throws IOException
+   {
+       System.out.println("----Sent Messages----");
+        for(int i=0,k=1;i<10;i++)
+       {
+           
+           if(!(sentm[i].equals("0")))
+           {
+               System.out.println("("+k+") "+sentm[i][0]+"\t"+sentm[i][1]);
+               k++;
+           }
+       } 
+    }
+   
+   void display_draft()throws IOException
+   {
+       BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+       for(int i=0,k=1;i<10;i++)
+       {
+           System.out.println("Drafts");
+           if(!(draft[i].equals("0")))
+           {
+               System.out.println("("+k+") "+draft[i]);
+               k++;
+           }
+       } 
+          System.out.println("Do you want to send a draft message?");
+          String kkkk=br.readLine();
+          if(kkkk.equalsIgnoreCase("yes"))
+          {
+              System.out.println("Press\n1 to enter the phone number of receipient\n2 to get the phone number"
+     +" from contacts");
+     
+     int c2=Integer.parseInt(br.readLine());
+     String phno;
+     switch(c2)
+     {
+         case 1:
+         System.out.println("Enter the phone number of receipient!");
+         phno=br.readLine();
+         
+         //check
+         case 2:
+         phno=br.readLine();
+     }
+     
+     System.out.println("Press enter to send!");
+     String waste=br.readLine();
+     //check - message sent call x-plodo
+          
+   }
+   else if(kkkk.equalsIgnoreCase("no"))
+   {
+       main();
+    }
+   
+}
+   
+   //not constructor
+   void Messages()
+   {
+    for(int i=0;i<10;i++)
+    {
+        inbox[i]="0";
+        draft[i]="0";
+        sentm[i][0]="0";
+        sentm[i][1]="0";
+    }
+   }
+   
+   void new_message()throws IOException
+   {
+    BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+    System.out.println("Type the Message in one line only!\n Press enter when done!");
+    String mail=br.readLine();
+    System.out.println("\n Press\n1 if you want to save as drafts \n2 if you want to send it now");
+    int c=Integer.parseInt(br.readLine());
+    if(c==1)
+    {
+     for(int i=0;i<10;i++)
+     {
+         if(draft[i].equals("0"))
+         {
+             draft[i]=mail;
+             break;
+         }
+     }
+     System.out.println("Message saved in draft!");
+    }  
+    
+    if(c==2)
+    {
+     System.out.println("Press\n1 to enter the phone number of receipient\n2 to get the phone number"
+     +" from contacts");
+     
+     int c2=Integer.parseInt(br.readLine());
+     String phno;
+     switch(c2)
+     {
+         case 1:
+         System.out.println("Enter the phone number of receipient!");
+         phno=br.readLine();
+         
+         //check
+         case 2:
+         phno=br.readLine();
+     }
+     
+     System.out.println("Press enter to send!");
+     String waste=br.readLine();
+    
+     explodo x= new explodo();
+     x.send_mail();
+     for(int i=0;i<10;i++)
+    {
+        if(sentm[i][0].equals("0"))
+        {
+       //  sentm[i][0]=phno;
+         sentm[i][1]=mail;
+         break;
+        }
+         
+    }
+         
+    }
+    
+   }
+       
+   void main()throws IOException
+   {
+       Messages();
+     System.out.println("----MESSAGES----");
+     System.out.println("(1) New Message");
+     System.out.println("(2) Inbox");
+     System.out.println("(3) Draft");
+     System.out.println("(4) Sent Messages");
+     System.out.println("(5) Delete Messages");
+     System.out.println("(6) Back To Menu");
+     
+     BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+     int c=Integer.parseInt(br.readLine());
+     int i=0;
+     do{
+         i=0;
+     switch(c)
+     {
+         
+          case 1:
+          new_message();
+          break;
+          
+          case 2:
+          inbox();
+          break;
+          
+          case 3:
+          display_draft();
+          break;
+          
+          case 4:
+          sent_messages();
+          break;
+          
+          case 5:
+          //delete_messages();
+          break;
+          
+          case 6:
+          mobile1.main();
+          break;
+          
+          default:
+          System.out.println("Enter correct choice.");
+          i++;
+          
+        }
+    }while(i!=0);
+   }
+}
+   
+   
+
+
+          
+         
+          
+          

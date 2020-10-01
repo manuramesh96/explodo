@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ delete_messages()
+comment1.params=
+comment1.target=void\ inbox()
+comment2.params=
+comment2.target=void\ sent_messages()
+comment3.params=
+comment3.target=void\ display_draft()
+comment4.params=
+comment4.target=Messages()
+comment5.params=
+comment5.target=void\ new_message()
+comment6.params=
+comment6.target=void\ main()
+numComments=7

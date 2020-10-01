@@ -1,0 +1,204 @@
+import java.io.*;
+class mobile1
+{
+static int o=0;
+static String opt=" ";
+  
+    static void message()throws IOException
+   {
+       explodo qq=new explodo();
+       qq.wait_circle(5);
+    }
+    static void contact()throws IOException
+    {
+        explodo qq=new explodo();
+        qq.wait_circle(5);
+        contact s=new contact();
+        s.contact();
+     }
+    static void organizer()throws IOException
+    {
+        explodo qq=new explodo();
+        qq.wait_circle(5);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));    
+         System.out.println("(1)Countdown timer\n(2)Notes\n(3)Calculator");
+         int yy=Integer.parseInt(br.readLine());
+         int h;
+         do
+         {
+             h=0;
+             switch(yy)
+             {
+                 //check
+                 case 1:
+                 break;
+                 
+                 case 2:
+                 notes n=new notes();
+                 n.main();
+                 break;
+                 
+                 case 3:
+                 //check
+                 break;
+                 
+                 default :
+                 System.out.println("Please select from the options");
+                 h++;
+              }
+         }while(h!=0);
+                 
+    }
+    static void games_and_applications()throws IOException
+    {
+      explodo qq=new explodo();
+      qq.wait_circle(5);
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));    
+      System.out.println("(1)HAND CRICKET\n(2)TIC TAC TOE\n(3)CONVERTOR\n(4)WORLD CLOCK\n(5)MAIN MENU");
+      String j=br.readLine();
+        if(j.equals("1"))
+      {
+         handcricket l=new handcricket();
+         l.menu();
+      }
+        else if(j.equals("2"))
+      {
+         xandos r=new xandos();
+         r.maingame();
+       }
+        else if(j.equals("5"))
+      {
+         main();
+      }  
+   }
+    static void setting()throws IOException
+     {
+        explodo qq=new explodo();
+        qq.wait_circle(5);
+     }
+        
+   static void main()throws IOException
+   {
+       explodo qq=new explodo();
+       qq.wait_circle(5);
+       if(o<1)
+       { 
+           contact c=new contact();
+           c.declare1();
+           c.declare2();
+           o=1;
+        }
+        settings s1=new settings();
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));    
+      
+     int f,q;
+      
+        
+      System.out.println("__________________________________________________________"+
+      "_________________________________________________________________________");
+      System.out.println("SIM 1-| || ||| ||||\t\t\t\t\t\tSIM 2-| || ||| ||||            \n");
+      System.out.println("SIM 1- "+s1.Sim1()+"\nSIM 2- "+s1.Sim2());
+       do
+       {
+       
+    
+      System.out.println("\t\t\t\t\t\tMAIN MENU\n\n(1)MENU\n(2)CALL\n(3)SWITCH OFF"); 
+      opt=br.readLine();
+       f=0;
+       try
+       {    
+      
+       if(opt.equals("1+*"))
+      {
+          System.out.println("KEYPAD LOCKED\nPRESS 1+* TO CONTINUE");
+          String h=br.readLine();
+          if(!(h.equals("1+*")))
+          {
+              System.out.println("PLEASE TYPE 1+* TO CONTINUE");
+              h=br.readLine();
+          while(h.equals("1+*"))
+          {
+               System.out.println("PLEASE TYPE 1+* TO CONTINUE");
+              h=br.readLine();
+            }
+        }
+        main();  
+      }
+      if(opt.equals("1"))
+      {
+           do
+      {
+       q=0;
+       
+       qq.wait_circle(5);
+       System.out.println("MENU \n(1)MESSAGES\n(2)CONTACTS\n(3)SETTINGS\n(4)ORGANIZER\n(5)GAMES AND APPLICATIONS\n(6)MAIN MENU");
+       String h=br.readLine();
+      
+     
+       try
+       {
+        if(h.equals("1"))
+        {
+        }
+        else if(h.equals("2"))
+       {
+         contact();
+       }
+       else if(h.equals("3"))
+       {
+           setting();
+        }
+        else if(h.equals("4"))
+        {
+            organizer();
+        }
+       else if(h.equals("5"))
+       {
+         games_and_applications();
+      }
+      else if(h.equals("6"))
+      {
+          main();
+      }
+      else
+      {
+          throw new IOException();
+       }
+    }
+       catch(IOException m)
+       {
+          System.out.println("Please select from the options given");
+           q++;
+        }
+     }while(q!=0);
+    }
+      else if(opt.equals("2"))
+      {
+          contact v=new contact();
+          call d=new call(v.contacts,v.phno);
+          d.call_();
+      }
+      else if(opt.equals("3"))
+      {
+      }
+      else if(opt.equals(""))
+      {
+          main();
+      }
+      else if(opt.equals(" "))
+      {
+          main();
+      }
+      else
+      {
+          throw new IOException();
+      }
+    }
+    catch(IOException w)
+    {
+        System.out.println("Please select from the options given");
+        f++;
+    }
+   }while(f!=0);
+  }
+ }

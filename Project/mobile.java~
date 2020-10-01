@@ -1,0 +1,25 @@
+import java.io.*;
+class mobile 
+{
+ 
+  
+   public void main()throws InterruptedException
+  {
+     
+      
+      try
+      {
+      animations qq=new animations();
+      qq.wait_circle(9);
+      qq.phone_start();
+      mobile1 aa=new mobile1();
+      aa.main();
+      }
+      catch(IOException i)
+      {
+          System.out.println("Error");
+      }
+  }
+}
+    
+    

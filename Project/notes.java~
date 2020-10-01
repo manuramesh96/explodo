@@ -1,0 +1,244 @@
+import java.io.*;
+class notes
+{
+ int j=0;
+ String s;
+ String[]sf=new String[100];
+ void open_file()throws IOException
+ {
+     BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+     if(j==1)
+        {
+            System.out.println("There are no files created");
+            add();
+        }
+        else
+        {
+            System.out.println("Enter the name of the file");
+             s=br.readLine()+".txt";
+             int qw=0;
+             for(int i=0;i<sf.length;i++)
+             {
+                 if(!(sf[i].equals("0")))
+                 {
+                     if(sf[i].equalsIgnoreCase(s))
+                     {
+                         qw++;
+                         break;
+                     }
+                 }
+             }
+             if(qw==0)
+             {
+                 System.out.println("The file you are searching is not present");
+                 main();
+             }
+             else
+             {
+            FileInputStream a=new FileInputStream(s);
+            DataInputStream b=new DataInputStream(a);
+            BufferedReader aa=new BufferedReader(new InputStreamReader(b));
+            while(b.available()!=0)
+            {
+             System.out.println(aa.readLine());
+            }
+            int w;
+            do
+            {
+                w=0;
+                try
+                {
+                    System.out.println("Do you want write in the file");
+                    String  u=br.readLine();
+                    if(u.equalsIgnoreCase("yes"))
+                    {
+                        File x=new File(s);   
+                        FileOutputStream y=new FileOutputStream(x);
+                        PrintStream z=new PrintStream(y);
+                        System.out.println("start typing and press return key when typing is complete");
+                        String d=br.readLine();
+                        z.println(d);
+                    }
+                    else if(u.equalsIgnoreCase("no"))
+                    {
+                        main();
+                    }
+                    else
+                    {
+                        throw new IOException();
+                    }
+                }
+                catch(IOException ax)
+                {
+                    System.out.println("Please enter yes or no");
+                    w++;
+                }
+            }while(w!=0);
+        }
+       }
+        main();
+    }
+    void write_file()throws IOException
+    {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        if(j==1)
+        {
+            add();
+            
+        }
+        else
+        {
+            System.out.println("Enter the name of the file");
+             s=br.readLine()+".txt";
+             int qw=0;
+             for(int i=0;i<sf.length;i++)
+             {
+                 if(!(sf[i].equals("0")))
+                 {
+                     if(sf[i].equalsIgnoreCase(s))
+                     {
+                         qw++;
+                         break;
+                     }
+                 }
+             }
+             if(qw==0)
+             {
+                  System.out.println("The file you are searching is not present");
+                 main();
+             }
+             else
+             {
+                 File x=new File(s);   
+                 FileOutputStream y=new FileOutputStream(x);
+                 PrintStream z=new PrintStream(y);
+                 System.out.println("start typing and press return key when typing is complete");
+                 String d=br.readLine();
+                 z.println(d);
+                 System.out.println("Saved");
+              }
+             }
+        main();
+    }
+    void delete_note()throws IOException
+    {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the name of the note you want to delete:");
+         s=br.readLine()+".txt";
+         int qw=0;
+             for(int i=0;i<sf.length;i++)
+             {
+                 if(!(sf[i].equals("0")))
+                 {
+                     if(sf[i].equalsIgnoreCase(s))
+                     {
+                         qw++;
+                         break;
+                     }
+                 }
+             }
+             if(qw==0)
+             {
+                  System.out.println("The file you are searching is not present");
+                  main();
+             }
+             else
+             {
+                 int oo=0;
+               for(int i=0;i<sf.length;i++)
+              {
+                  if(!(sf[i].equals("0")))
+                  {
+                        if(sf[i].equalsIgnoreCase(s))
+                      {
+                          oo=i;
+                          break;
+                      }
+                  }
+              }  
+              for(int i=oo;i<sf.length;i++)
+              {
+                  if(!(sf[i].equals("0")))
+                  {
+                      sf[i]=sf[i+1];
+                  }
+               }
+               System.out.println("Note added");
+            } 
+  
+             main();
+            }
+        
+    void main()throws IOException
+    {
+        animations qq=new animations();
+        qq.wait_circle(5);
+        j++;
+        if(j==1)
+        {
+            for(int i=0;i<sf.length;i++)
+            {
+                sf[i]="0";
+            }
+        }
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("WELCOME TO NOTES");
+        int q;
+        do
+        {
+            q=0;
+            try
+            {
+                System.out.println("(1)Open saved file\n(2)Write in a file\n(3)Create new file\n(4)Delete Note\n(5)Go to organizer");
+                int h=Integer.parseInt(br.readLine());
+                if(h==1)
+                {
+                    open_file();
+                }     
+                if(h==2)
+                {
+                    write_file();
+                }
+                else if(h==3)
+                {
+                    add();
+                }
+                else if(h==4)
+                {
+                    delete_note();
+                }
+                else if(h==5)
+                {
+                    mobile1.organizer();
+                }
+                else
+                {
+                    throw new IOException();
+                }
+            }
+            catch(IOException tt)
+            {
+                System.out.println("Please select from the options given");
+                q++;
+            }
+        }while(q!=0);
+  
+    }
+    void add()throws IOException
+    {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the name of the new file");
+        s=br.readLine()+".txt";
+        File x=new File(s);   
+        for(int i=0;i<sf.length;i++)
+        {
+            if(sf[i].equals("0"))
+            {
+                sf[i]=s;
+                break;
+            }
+         }
+         System.out.println("Note saves");
+         main();
+    }
+}

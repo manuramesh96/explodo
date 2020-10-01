@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=j
+comment0.target=void\ wait_circle(int)
+comment1.params=
+comment1.target=void\ send_mail()
+comment2.params=
+comment2.target=void\ explodo()
+comment3.params=
+comment3.target=void\ bold()
+comment4.params=s2
+comment4.target=void\ phone_start(java.lang.String)
+numComments=5

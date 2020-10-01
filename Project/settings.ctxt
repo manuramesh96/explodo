@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ accept_welcome_text()
+comment1.params=
+comment1.target=java.lang.String\ display_welcome_text()
+comment2.params=
+comment2.target=void\ Simcard1()
+comment3.params=
+comment3.target=java.lang.String\ Sim1()
+comment4.params=
+comment4.target=void\ date()
+comment5.params=
+comment5.target=void\ time()
+comment6.params=abc
+comment6.target=void\ p(java.lang.String)
+comment7.params=
+comment7.target=void\ main()
+numComments=8
